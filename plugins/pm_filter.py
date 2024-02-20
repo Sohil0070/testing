@@ -1487,18 +1487,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             query.message.id, 
             InputMediaPhoto(random.choice(PICS))
         )
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text="▣☐☐"
-        )
-        await asyncio.sleep(0.1)
-        await query.message.edit_text(
-            text="▣▣☐"
-        )
-        await asyncio.sleep(0.2)
-        await query.message.edit_text(
-            text="▣▣▣"
-        )
         await query.message.edit_text(
             text=script.HELP_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
