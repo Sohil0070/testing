@@ -1419,18 +1419,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             query.message.chat.id, 
             query.message.id, 
             InputMediaPhoto(random.choice(PICS))
-        )
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text="▣☐☐"
-        )
-        await asyncio.sleep(0.3)
-        await query.message.edit_text(
-            text="▣▣☐"
-        )
-        await asyncio.sleep(0.3)
-        await query.message.edit_text(
-            text="▣▣▣"
         ) 
         await query.message.edit_text(
             text=script.ALL_FILTERS.format(query.from_user.mention),
@@ -1446,18 +1434,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             query.message.chat.id, 
             query.message.id, 
             InputMediaPhoto(random.choice(PICS))
-        )
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text="▣☐☐"
-        )
-        await asyncio.sleep(0.1)
-        await query.message.edit_text(
-            text="▣▣☐"
-        )
-        await asyncio.sleep(0.2)
-        await query.message.edit_text(
-            text="▣▣▣"
         )
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -1512,18 +1488,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
-            text="▣☐☐"
-        )
-        await asyncio.sleep(0.1)
-        await query.message.edit_text(
-            text="▣▣☐"
-        )
-        await asyncio.sleep(0.2)
-        await query.message.edit_text(
-            text="▣▣▣"
-        )
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
             text=script.ABOUT_TXT.format(temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
@@ -1537,18 +1501,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             query.message.chat.id, 
             query.message.id, 
             InputMediaPhoto(random.choice(PICS))
-        )
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text="▣☐☐"
-        )
-        await asyncio.sleep(0.1)
-        await query.message.edit_text(
-            text="▣▣☐"
-        )
-        await asyncio.sleep(0.2)
-        await query.message.edit_text(
-            text="▣▣▣"
         )
         await query.message.edit_text(
             text=script.SOURCE_TXT,
@@ -1652,12 +1604,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('🖼️ Tᴇʟᴇɢʀᴀᴘʜ 🔭', callback_data='tele')
         ],[
-            InlineKeyboardButton('🎭 Sᴛɪᴄᴋᴇʀ_ɪᴅ ⚜️', callback_data='sticker')
-        ],[ 
+            InlineKeyboardButton('🎭 Sᴛɪᴄᴋᴇʀ_ɪᴅ ⚜️', callback_data='sticker'), 
             InlineKeyboardButton('🙌 Fᴏɴᴛ Gᴇɴᴇʀᴀᴛᴏʀ 📝', callback_data='font')
         ],[
-            InlineKeyboardButton('🔭 Sᴛᴀᴛs 📊', callback_data='stats')
-        ],[
+            InlineKeyboardButton('🔭 Sᴛᴀᴛs 📊', callback_data='stats'),
             InlineKeyboardButton('🌐 ᴄᴏᴜɴᴛʀʏ 🔅', callback_data='country')
         ],[
             InlineKeyboardButton('‹‹‹ Bᴀᴄᴋ', callback_data='about')
