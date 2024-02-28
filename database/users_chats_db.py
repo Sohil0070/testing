@@ -22,7 +22,6 @@ class Database:
     async def del_join_req(self):
         await self.req.drop()
 
-
     def new_user(self, id, name):
         return dict(
             id = id,
