@@ -52,7 +52,7 @@ async def start(client, message):
                     InlineKeyboardButton('↼ Hᴇʟᴘ', callback_data='help'),
                     InlineKeyboardButton('Aʙᴏᴜᴛ ⇀', callback_data='about')
                 ],[
-                    InlineKeyboardButton('✪ Jᴏɪɴ Uᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟs ✪', callback_data="chnl_info")
+                    InlineKeyboardButton('✨ ʙᴜʏ ꜱᴜʙꜱᴄʀɪᴘᴛɪᴏɴ : ʀᴇᴍᴏᴠᴇ ᴀᴅꜱ ✨', callback_data="premium_info")
                   ]]
         reply_markup = InlineKeyboardMarkup(buttons)   
         m=await message.reply_sticker("CAACAgIAAxkBAAIG_mU9IO9b8CSMEQON2CnDdQVK_ybFAAKpFgACc_QAAUtyCXMIz-lEyh4E") 
