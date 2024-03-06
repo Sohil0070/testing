@@ -6,7 +6,7 @@ Mʏ Nᴀᴍᴇ Is <a href=https://t.me/{}>{}</a>, I Cᴀɴ Pʀᴏᴠɪᴅᴇ M�
 Hᴇʀᴇ Is Tʜᴇ Hᴇʟᴘ Fᴏʀ Mʏ Cᴏᴍᴍᴀɴᴅs.</b>"""
 
     ABOUT_TXT = """<b>✯ Mʏ Nᴀᴍᴇ: {}
-✯ Cʀᴇᴀᴛᴏʀ: <a href='t.me/Abhi_the_machinegun'>ᴜɴᴋɴᴏᴡɴ</a>
+✯ Cʀᴇᴀᴛᴏʀ: <a href='t.me/sam_07dz'>ᴜɴᴋɴᴏᴡɴ</a>
 ✯ Lɪʙʀᴀʀʏ: <a href='docs.pyrogram.org/'>Pʏʀᴏɢʀᴀᴍ</a>
 ✯ Lᴀɴɢᴜᴀɢᴇ: <a href='www.python.org/download/releases/3.0/'>Pʏᴛʜᴏɴ 3</a>
 ✯ DᴀᴛᴀBᴀsᴇ: <a href='www.mongodb.com'>MᴏɴɢᴏDB</a>
@@ -14,7 +14,7 @@ Hᴇʀᴇ Is Tʜᴇ Hᴇʟᴘ Fᴏʀ Mʏ Cᴏᴍᴍᴀɴᴅs.</b>"""
 ✯ Bᴜɪʟᴅ Sᴛᴀᴛᴜs: v2.7.1 [ Sᴛᴀʙʟᴇ ]</b>"""
 
     SOURCE_TXT = """<b>
-✭ Sᴏᴜʀᴄᴇ - <a href='t.me/Abhi_the_machinegun'>ʀᴇᴘᴏ ʟɪɴᴋ </a>
+✭ Sᴏᴜʀᴄᴇ - <a href='t.me/sam_07dz'>ʀᴇᴘᴏ ʟɪɴᴋ </a>
 ✭ ғᴏʀ ᴀɴʏ ǫᴜᴇʀʏ ᴄᴏɴᴛᴀᴄᴛ ᴛᴏ ᴛʜᴇ ᴅᴇᴠᴇʟᴏᴘᴇʀ 
 ✭ ɪғ ʏᴏᴜ ᴡᴀɴᴛ ʏᴏᴜʀ ᴏᴡɴ ᴀɴʏ ᴛʏᴘᴇ ᴏғ ʙᴏᴛ ᴛʜᴇɴ ᴅᴍ ᴍᴇ " ᴘᴀɪᴅ "</b>
 """
@@ -242,13 +242,9 @@ Tɪᴘ: Sᴇʟᴇᴄᴛ "Lᴀɴɢᴜᴀɢᴇs" ᴏʀ "Sᴇᴀsᴏɴs" Bᴜᴛᴛ
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
     CAPTION = """
-<b><a href=https://t.me/AtoZmoviesflix>{file_name}</a>
+<b><a href=https://t.me/inoxhubb>{file_name}</a>
 
-➟ <a href="https://telegra.ph/How-To-Fix-Sound-Issue-01-14">Fix Sound</a>
-
-➟ <a href="https://telegra.ph/Fast-Download-01-14">Fast⚡Download</a>
-
-➟ <a href="https://telegra.ph/Donate-Us-01-14">Donate Us</a></b>""" 
+➟ <a href="https://telegra.ph/Fast-Download-01-14">Fast⚡Download</a>""" 
 
     FORCE_SUB = """
 **⚠️ Pʟᴇᴀsᴇ ғᴏʟʟᴏᴡ ᴛʜɪs ʀᴜʟe ⚠️
