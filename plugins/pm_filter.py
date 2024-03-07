@@ -1383,11 +1383,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
                     InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                 ],[
-                    InlineKeyboardButton('↼ Eᴀʀɴ Mᴏɴᴇʏ', callback_data="shortlink_info"),
-                    InlineKeyboardButton('Mᴏᴠɪᴇ Gʀᴏᴜᴘ ⇀', url=GRP_LNK)
+                    InlineKeyboardButton(''💸 ᴇᴀʀɴ ᴍᴏɴᴇʏ 💸', callback_data="shortlink_info"),
+                    InlineKeyboardButton('• ɢʀᴏᴜᴘ •', url=GRP_LNK)
                 ],[
                     InlineKeyboardButton('• ᴄᴏᴍᴍᴀɴᴅꜱ •', callback_data='help'),
-                    InlineKeyboardButton('Aʙᴏᴜᴛ ⇀', callback_data='about')
+                    InlineKeyboardButton('• ᴀʙᴏᴜᴛ •', callback_data='about')
                 ],[
                     InlineKeyboardButton('✨ ʙᴜʏ ꜱᴜʙꜱᴄʀɪᴘᴛɪᴏɴ : ʀᴇᴍᴏᴠᴇ ᴀᴅꜱ ✨', callback_data="premium_info")
                   ]]
@@ -1430,7 +1430,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     
     elif query.data == "help":
         buttons = [[
-            InlineKeyboardButton('✉️ ᴀɴʏ ǫᴜᴇʀʏ ✉️', url='https://t.me/titaniummovieflix')
+            InlineKeyboardButton('• ʙᴏᴛ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅꜱ •', callback_data='admin')
         ], [
             InlineKeyboardButton('• ᴜꜱᴇʀ •', callback_data='users'),
             InlineKeyboardButton('• ɢʀᴏᴜᴘ •', callback_data='group')
@@ -1580,7 +1580,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('↼ Exᴛʀᴀ Fᴇᴀᴛᴜʀᴇs ⇀', callback_data='mods')
         ],[ 
-            InlineKeyboardButton('↼ Oᴡɴᴇʀ Iɴғᴏ', callback_data="owner_info"),
+            InlineKeyboardButton('• ᴏᴡɴᴇʀ •', callback_data="owner_info"),
             InlineKeyboardButton('Sᴏᴜʀᴄᴇ Cᴏᴅᴇ ⇀', callback_data='source')
             
         ],[
@@ -1588,7 +1588,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Cʟᴏsᴇ ⊝', callback_data='close_data')
         ],[
             InlineKeyboardButton('❗ Dɪsᴄʟᴀɪᴍᴇʀ ❗', callback_data='dicl_btn'),
-            InlineKeyboardButton('• ꜰʀᴇᴇ ᴛʀɪᴀʟ •', callback_data='premium_info')
+            InlineKeyboardButton('• ᴜᴘᴅᴀᴛᴇꜱ •', callback_data='chnl_info')
         ]]
         await client.edit_message_media(
             query.message.chat.id, 
@@ -1846,8 +1846,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "owner_info":
             btn = [[
-                    InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="start"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="https://t.me/titaniummovieflix")
+                    InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="mods"),
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="https://t.me/inoxhubb")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -1868,14 +1868,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
             btn = [[
                     InlineKeyboardButton("↼ Mᴏᴠɪᴇ Sᴇᴀʀᴄʜ Gʀᴏᴜᴘ ⇀", url= GRP_LNK)
                 ],[
-                    InlineKeyboardButton("↼ ʙᴏᴛ ᴄʜᴀɴɴᴇʟ ⇀", url=SPRT_CHNL)
+                    InlineKeyboardButton("'ꜱᴜᴘᴘᴏʀᴛ 👮", url=SPRT_CHNL)
                 ],[
                     InlineKeyboardButton("↼  Uᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ ⇀", url=CHNL_LNK)
                 ],[
                     InlineKeyboardButton('♙ Hᴏᴍᴇ', callback_data='start'),
-                    InlineKeyboardButton('Cʟᴏsᴇ ⊝', callback_data='close_data')
-                ],[
                     InlineKeyboardButton('❗❗ Dɪsᴄʟᴀɪᴍᴇʀ ❗❗', callback_data='dicl_btn')
+                ],[
+                    InlineKeyboardButton('♙ Hᴏᴍᴇ', callback_data='start')
                 ]]
             await client.edit_message_media(
                 query.message.chat.id, 
