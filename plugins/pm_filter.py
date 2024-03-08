@@ -1578,11 +1578,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('↼ Exᴛʀᴀ Fᴇᴀᴛᴜʀᴇs ⇀', callback_data='mods')
         ],[ 
             InlineKeyboardButton('• ᴏᴡɴᴇʀ •', callback_data="owner_info"),
-            InlineKeyboardButton('Sᴏᴜʀᴄᴇ Cᴏᴅᴇ ⇀', callback_data='source')
-            
+            InlineKeyboardButton('• ꜱᴏᴜʀᴄᴇ •', callback_data='source')
         ],[
-            InlineKeyboardButton('♙ Hᴏᴍᴇ', callback_data='start'),
-            InlineKeyboardButton('Cʟᴏsᴇ ⊝', callback_data='close_data')
+            InlineKeyboardButton('❗ Dɪsᴄʟᴀɪᴍᴇʀ ❗', callback_data='dicl_btn')
         ],[
             InlineKeyboardButton('❗ Dɪsᴄʟᴀɪᴍᴇʀ ❗', callback_data='dicl_btn'),
             InlineKeyboardButton('• ᴜᴘᴅᴀᴛᴇꜱ •', callback_data='chnl_info')
@@ -1829,7 +1827,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "owner_info":
             btn = [[
-                    InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="mods"),
+                    InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="about"),
                     InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="https://t.me/inoxhubb")
                   ]]
             await client.edit_message_media(
@@ -1844,42 +1842,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup = InlineKeyboardMarkup(btn)
             await query.message.edit_text(
                 text=(script.OWNER_INFO),
-                reply_markup=reply_markup,
-                parse_mode=enums.ParseMode.HTML
-            )
-    elif query.data == "chnl_info":
-            btn = [[
-                    InlineKeyboardButton("↼ Mᴏᴠɪᴇ Sᴇᴀʀᴄʜ Gʀᴏᴜᴘ ⇀", url= GRP_LNK)
-                ],[
-                    InlineKeyboardButton("'ꜱᴜᴘᴘᴏʀᴛ 👮", url=SPRT_CHNL)
-                ],[
-                    InlineKeyboardButton("↼  Uᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ ⇀", url=CHNL_LNK)
-                ],[
-                    InlineKeyboardButton('♙ Hᴏᴍᴇ', callback_data='start'),
-                    InlineKeyboardButton('❗❗ Dɪsᴄʟᴀɪᴍᴇʀ ❗❗', callback_data='dicl_btn')
-                ],[
-                    InlineKeyboardButton('♙ Hᴏᴍᴇ', callback_data='start')
-                ]]
-            await client.edit_message_media(
-                query.message.chat.id, 
-                query.message.id, 
-                InputMediaPhoto("https://graph.org/file/2f7b5a8b0d33102d19c8d.jpg")
-            )
-            reply_markup = InlineKeyboardMarkup(btn)
-            await query.message.edit_text(
-                text="▣☐☐"
-            )
-            await asyncio.sleep(0.1)
-            await query.message.edit_text(
-                text="▣▣☐"
-            )
-            await asyncio.sleep(0.2)
-            await query.message.edit_text(
-                text="▣▣▣"
-            )
-            reply_markup = InlineKeyboardMarkup(btn)
-            await query.message.edit_text(
-                text=(script.CHNL_INFO),
                 reply_markup=reply_markup,
                 parse_mode=enums.ParseMode.HTML
             )
