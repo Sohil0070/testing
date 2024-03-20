@@ -104,6 +104,9 @@ async def start(client, message):
                     InlineKeyboardButton('💸 ᴇᴀʀɴ ᴍᴏɴᴇʏ 💸', callback_data="shortlink_info"),
                     InlineKeyboardButton('• ɢʀᴏᴜᴘ •', url=GRP_LNK)
                 ],[
+                    InlineKeyboardButton('📎 Refer', callback_data="refer"),
+                    InlineKeyboardButton('🔥 Top Search', callback_data="topsearch"),
+                ],[
                     InlineKeyboardButton('• ᴄᴏᴍᴍᴀɴᴅꜱ •', callback_data='help'),
                     InlineKeyboardButton('• ᴀʙᴏᴜᴛ •', callback_data='about')
                 ],[
@@ -192,7 +195,7 @@ async def start(client, message):
         await sts.delete()
         return
 
-     if message.command[1] == "topsearch":
+    if message.command[1] == "topsearch":
         m = await message.reply_text(f"<b>Please Wait, Fetching Top Searches...</b>")
         top_messages = await mdb.get_top_messages(30)
 
