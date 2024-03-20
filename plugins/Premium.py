@@ -150,6 +150,27 @@ async def plan(client, message):
         InlineKeyboardButton("📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ", user_id=int(6403664386))],[InlineKeyboardButton("❌ ᴄʟᴏꜱᴇ ❌", callback_data="close_data")
     ]]
     await message.reply_photo(photo="https://telegra.ph/file/734170f40b8169830d821.jpg", caption=script.PREMIUM_TEXT.format(message.from_user.mention), reply_markup=InlineKeyboardMarkup(btn))
+
+# Add functions for refferal system
+@Client.on_message(filters.command("refer"))
+async def reffer(_, message):
+    m = await message.reply_text(f"<b>Generating Your Refferal Link...</b>")
+    await asyncio.sleep(2)
+    user_id = message.from_user.id
+    referral_points = await db.fetch_value(user_id, "refferal")
+    refferal_link = f"https://t.me/{temp.U_NAME}?start=ReferID-{user_id}"
+    keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("🔗 Invite Your Friends", url=f"https://telegram.me/share/url?url={refferal_link}&text=Hello%21%20Experience%20a%20bot%20that%20offers%20a%20vast%20library%20of%20unlimited%20movies%20and%20series.%20%F0%9F%98%83")]])
+    await m.edit(f"<b>Here is your refferal link:\n\n{refferal_link}\n\nShare this link with your friends, Each time they join, Both of you will be rewarded 10 refferal points and after 50 points you will get 1 month premium subscription.\n\n Referral Points: {referral_points}</b>",
+                 reply_markup=keyboard,
+                 disable_web_page_preview=True)
     
+@Client.on_message(filters.command("redeem"))
+async def redeem_req(_, message):
+    keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("Purchase Now", callback_data="remads")]])
+    await message.reply(
+        text=f"<b>Kindly Provide The Redeem Code For Premium Activation.\n\nIf You Don't Have a Redeem Code, You Can Purchase One Here.</b>",
+        reply_markup=keyboard
+    )
+	
 # SPECIAL THANKS TO [Rishikesh Sharma] @Rk_botowner FOR THESE AMAZING CODES
 # SPECIAL THANKS TO @DeletedFromEarth FOR MODIFYING THESE AMAZING CODES 
