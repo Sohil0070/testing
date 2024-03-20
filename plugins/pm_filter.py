@@ -1426,7 +1426,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
 
-     elif query.data == "refer":
+    elif query.data == "refer":
         user_id = query.from_user.id
         referral_points = await db.fetch_value(user_id, "referral")
         refferal_link = f"https://t.me/{temp.U_NAME}?start=ReferID-{user_id}"
