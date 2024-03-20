@@ -51,10 +51,13 @@ async def start(client, message):
                     InlineKeyboardButton('💸 ᴇᴀʀɴ ᴍᴏɴᴇʏ 💸', callback_data="shortlink_info"),
                     InlineKeyboardButton('• ɢʀᴏᴜᴘ •', url=GRP_LNK)
                 ],[
+                    InlineKeyboardButton('📎 Refer', callback_data="refer"),
+                    InlineKeyboardButton('🔥 Top Search', callback_data="topsearch"),
+                ],[
                     InlineKeyboardButton('• ᴄᴏᴍᴍᴀɴᴅꜱ •', callback_data='help'),
                     InlineKeyboardButton('• ᴀʙᴏᴜᴛ •', callback_data='about')
                 ],[
-                    InlineKeyboardButton('✨ ʙᴜʏ ꜱᴜʙꜱᴄʀɪᴘᴛɪᴏɴ : ʀᴇᴍᴏᴠᴇ ᴀᴅꜱ ✨', callback_data="premium_info")
+                    InlineKeyboardButton('✨ ʙᴜʏ ꜱᴜʙꜱᴄʀɪᴘᴛɪᴏɴ : ʀᴇᴍᴏᴠᴇ ᴀᴅꜱ ✨', callback_data="premium_info"),
                   ]]
         reply_markup = InlineKeyboardMarkup(buttons)   
         await message.reply_photo(
@@ -188,7 +191,74 @@ async def start(client, message):
             await asyncio.sleep(1) 
         await sts.delete()
         return
+
+     if message.command[1] == "topsearch":
+        m = await message.reply_text(f"<b>Please Wait, Fetching Top Searches...</b>")
+        top_messages = await mdb.get_top_messages(30)
+
+        truncated_messages = set()  # Use a set instead of a list
+        for msg in top_messages:
+            if len(msg) > 30:
+                truncated_messages.add(msg[:30 - 3].lower().title() + "...")  # Convert to lowercase, capitalize and add to set
+            else:
+                truncated_messages.add(msg.lower().title())  # Convert to lowercase, capitalize and add to set
+
+        keyboard = []
+        for i in range(0, len(truncated_messages), 2):
+            row = list(truncated_messages)[i:i+2]  # Convert set to list for indexing
+            keyboard.append(row)
     
+        reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True, one_time_keyboard=True, placeholder="Most searches of the day")
+        await message.reply_text(f"<b>Here Is The Top Searches Of The Day</b>", reply_markup=reply_markup)
+        await m.delete()
+        return
+          
+# Refer
+    if message.command[1] == "refer":
+        m = await message.reply_text(f"<b>Generating Your Refferal Link...</b>")
+        user_id = message.from_user.id
+        referral_points = await db.fetch_value(user_id, "referral")
+        refferal_link = f"https://t.me/{temp.U_NAME}?start=ReferID-{user_id}"
+        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("🔗 Invite Your Friends", url=f"https://telegram.me/share/url?url={refferal_link}&text=Hello%21%20Experience%20a%20bot%20that%20offers%20a%20vast%20library%20of%20unlimited%20movies%20and%20series.%20%F0%9F%98%83")]])
+        await m.edit(f"<b>Here is your refferal link:\n\n{refferal_link}\n\nShare this link with your friends, Each time they join, Both of you will be rewarded 10 refferal points and after 50 points you will get 1 month premium subscription.\n\n Referral Points: {referral_points}</b>",
+                     reply_markup=keyboard,
+                     disable_web_page_preview=True
+        )
+        return
+ # Referral sysytem
+    elif data.split("-", 1)[0] == "ReferID":
+        invite_id = int(data.split("-", 1)[1])
+
+        try:
+            invited_user = await client.get_users(invite_id)
+        except Exception as e:
+            print(e)
+            return
+
+        if str(invite_id) == str(message.from_user.id):
+            inv_link = f"https://t.me/{temp.U_NAME}?start=ReferID-{message.from_user.id}"
+            keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("🔗 Invite Your Friends", url=f"https://telegram.me/share/url?url={inv_link}&text=%F0%9D%90%87%F0%9D%90%9E%F0%9D%90%A5%F0%9D%90%A5%F0%9D%90%A8!%20%F0%9D%90%84%F0%9D%90%B1%F0%9D%90%A9%F0%9D%90%9E%F0%9D%90%AB%F0%9D%90%A2%F0%9D%90%9E%F0%9D%90%A7%F0%9D%90%9C%F0%9D%90%9E%20%F0%9D%90%9A%20%F0%9D%90%9B%F0%9D%90%A8%F0%9D%90%AD%20%F0%9D%90%AD%F0%9D%90%A1%F0%9D%90%9A%F0%9D%90%AD%20%F0%9D%90%A8%F0%9D%90%9F%F0%9D%90%9F%F0%9D%90%9E%F0%9D%90%AB%F0%9D%90%AC%20%F0%9D%90%9A%20%F0%9D%90%AF%F0%9D%90%9A%F0%9D%90%AC%F0%9D%90%AD%20%F0%9D%90%A5%F0%9D%90%A2%F0%9D%90%9B%F0%9D%90%AB%F0%9D%90%9A%F0%9D%90%AB%F0%9D%90%B2%20%F0%9D%90%A8%F0%9D%90%9F%20%F0%9D%90%AE%F0%9D%90%A7%F0%9D%90%A5%F0%9D%90%A2%F0%9D%90%A6%F0%9D%90%A2%F0%9D%90%AD%F0%9D%90%9E%F0%9D%90%9D%20%F0%9D%90%A6%F0%9D%90%A8%F0%9D%90%AF%F0%9D%90%A2%F0%9D%90%9E%F0%9D%90%AC%20%F0%9D%90%9A%F0%9D%90%A7%F0%9D%90%9D%20%F0%9D%90%AC%F0%9D%90%9E%F0%9D%90%AB%F0%9D%90%A2%F0%9D%90%9E%F0%9D%90%AC.")]])
+            await message.reply_text(f"<b>You Can't Invite Yourself, Send This Invite Link To Your Friends\n\nInvite Link</b> - \n<code>{inv_link}</code>",
+                                    reply_markup=keyboard,
+                                    disable_web_page_preview=True)
+            return
+
+        if not await db.is_user_exist(message.from_user.id):
+            try:
+                await db.add_user(message.from_user.id, message.from_user.first_name)
+                await asyncio.sleep(1)
+                referral = await db.fetch_value(invite_id, "referral") 
+                await db.update_value(invite_id, "referral", referral + 10) 
+                await asyncio.sleep(1)
+                referral_count = await db.fetch_value(message.from_user.id, "referral")
+                await db.update_value(message.from_user.id, "referral", referral_count + 10)
+                await client.send_message(text=f"You have successfully Invited {message.from_user.mention}", chat_id=invite_id)
+                await message.reply_text(f"You have been successfully invited by {invited_user.first_name}", disable_web_page_preview=True)
+            except Exception as e:
+                print(e)
+        else:
+            await message.reply_text("You already Invited or Joined")
+        return
     elif data.split("-", 1)[0] == "DSTORE":
         sts = await message.reply("<b>Please wait...</b>")
         b_string = data.split("-", 1)[1]
