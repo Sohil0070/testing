@@ -85,8 +85,8 @@ async def give_filter(client, message):
 #         text=f"<b>#𝐏𝐌_𝐌𝐒𝐆\n\nNᴀᴍᴇ : {user}\n\nID : {user_id}\n\nMᴇssᴀɢᴇ : {content}</b>"
 #     )
 
-    if referral is not None and referral >= 50:
-        await db.update_value(user_id, "referral", referral - 50)
+    if referral is not None and referral >= 10:
+        await db.update_value(user_id, "referral", referral - 10)
         await db.add_user_as_premium(user_id, 28, tody)
         await message.reply_text(f"**Congratulations! {message.from_user.mention},\nYou Have Received 1 Month Premium Subscription For Inviting 5 Users.**", disable_web_page_preview=True)
         return
