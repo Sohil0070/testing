@@ -218,4 +218,14 @@ class Database:
         user_data = {"id": user_id, "expiry_time": expiry_time, "has_free_trial": True}
         await self.users.update_one({"id": user_id}, {"$set": user_data}, upsert=True)
 
+    async def fetch_value(self, user_id, key):
+        user = await self.col.find_one({"id": user_id})
+        if user is None:
+            await self.add_user(user_id, "None")
+            return None
+        return user.get(key)
+
+    async def update_value(self, user_id, key, value):
+        await self.col.update_one({"id": user_id}, {"$set": {key: value}})
+
 db = Database(DATABASE_URI, DATABASE_NAME)
