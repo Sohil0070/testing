@@ -171,6 +171,13 @@ async def redeem_req(_, message):
         text=f"<b>Kindly Provide The Redeem Code For Premium Activation.\n\nIf You Don't Have a Redeem Code, You Can Purchase One Here.</b>",
         reply_markup=keyboard
     )
+
+# remove all free user from database
+@Client.on_message(filters.command("remove_all_free") & filters.user(ADMINS))
+async def remove_all_free(client, message):
+    m = await message.reply_text("Removing all free users...")
+    await db.remove_all_free_users()
+    await m.edit("Successfully removed all free users!")
 	
 # SPECIAL THANKS TO [Rishikesh Sharma] @Rk_botowner FOR THESE AMAZING CODES
 # SPECIAL THANKS TO @DeletedFromEarth FOR MODIFYING THESE AMAZING CODES 
