@@ -69,9 +69,9 @@ async def give_filter(client, message):
         else:
             return await message.reply_text(f"<b>Hᴇʏ {message.from_user.mention}, {str(total_results)} ʀᴇsᴜʟᴛs ᴀʀᴇ ғᴏᴜɴᴅ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀsᴇ ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {search}. \n\nTʜɪs ɪs ᴀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ sᴏ ᴛʜᴀᴛ ʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ғɪʟᴇs ғʀᴏᴍ ʜᴇʀᴇ...\n\nJᴏɪɴ ᴀɴᴅ Sᴇᴀʀᴄʜ Hᴇʀᴇ - @atozmoviesflix</b>")
     
+    chat_id = message.from_user.id
+    user = await db.get_user(chat_id)
     referral = await db.fetch_value(user_id, "referral")
-    user_id = message.from_user.id
-    user = await db.get_user(user_id)
     
 # @Client.on_message(filters.private & filters.text & filters.incoming)
 # async def pm_text(bot, message):
